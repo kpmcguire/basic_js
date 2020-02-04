@@ -74,6 +74,7 @@ var stylish = require('jshint-stylish');
 var concat = require('gulp-concat');
 var uglify = require('gulp-terser');
 var optimizejs = require('gulp-optimize-js');
+var babel = require("gulp-babel");
 
 // Styles
 var sass = require('gulp-sass');
@@ -136,6 +137,11 @@ var buildScripts = function (done) {
 
 	// Run tasks on script files
 	src(paths.scripts.input)
+	
+		.pipe(babel({
+			presets: ['@babel/env']
+		}))
+
 		.pipe(flatmap(function(stream, file) {
 
 			// If the file is a directory
@@ -206,11 +212,7 @@ var buildStyles = function (done) {
 			sourceComments: true
 		}))
 		.on('error', swallowError)
-		.pipe(prefix({
-			browsers: ['last 2 version', '> 0.25%'],
-			cascade: true,
-			remove: true
-		}))
+		.pipe(prefix())
 		.pipe(dest(paths.styles.output))
 		.pipe(uglifycss({"maxLineLen": 80, "uglyComments": true}))
 		.pipe(rename({suffix: '.min'}))

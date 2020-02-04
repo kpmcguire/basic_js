@@ -12,15 +12,21 @@
 		"type": "git",
 		"url": "http://link-to-your-git-repo.com"
 	},
+	"browserslist": [
+		"defaults"
+	],
 	"devDependencies": {
+		"@babel/core": "^7.7.7",
+		"@babel/preset-env": "^7.7.7",
 		"browser-sync": "*",
-		"del": "^5.0.0",
-		"gulp": "*",
+		"del": "*",
+		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "*",
-		"gulp-cache": "^1.1.3",
+		"gulp-babel": "^8.0.0",
+		"gulp-cache": "*",
 		"gulp-concat": "*",
 		"gulp-flatmap": "*",
-		"gulp-imagemin": "^6.0.0",
+		"gulp-imagemin": "*",
 		"gulp-jshint": "*",
 		"gulp-optimize-js": "*",
 		"gulp-rename": "*",
@@ -34,8 +40,9 @@
 	},
 	"dependencies": {
 		"gulp-pug": "*",
-		"gulp-uglifycss": "^1.1.0",
-		"lodash": "^4.17.15",
+		"gulp-uglifycss": "*",
+		"lodash": "*",
+		"phaser-ce": "^2.14.0",
 		"pug": "*"
 	}
 }
